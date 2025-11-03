@@ -8,3 +8,12 @@
   --color-primary: blue;
   --color-secondary: teal;
 }
+
+/* custom button override */
+.btn-primary {
+  @apply bg-gradient-to-r from-[#632EE3] to-[#9F62F2] border-none text-white;
+}
+
+.btn-primary:hover {
+  @apply opacity-90;
+}

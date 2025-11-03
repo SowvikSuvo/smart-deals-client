@@ -72,7 +72,11 @@ const Navbar = () => {
       </div>
       <div className="navbar-end">
         {user ? (
-          <Link to={"/register"} onClick={handleSignOut} className="btn">
+          <Link
+            to={"/register"}
+            onClick={handleSignOut}
+            className="btn btn-primary"
+          >
             Sign Out
           </Link>
         ) : (
