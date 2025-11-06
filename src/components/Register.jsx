@@ -1,6 +1,7 @@
 import React from "react";
 import { use } from "react";
 import { AuthContext } from "../contexts/AuthContext";
+// import { useNavigate } from "react-router";
 
 const Register = () => {
   const { signInWithGoogle } = use(AuthContext);
