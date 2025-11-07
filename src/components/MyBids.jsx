@@ -21,7 +21,7 @@ const MyBids = () => {
 
   // useEffect(() => {
   //   if (user?.email) {
-  //     fetch(`http://localhost:5000/bids?email=${user.email}`, {
+  //     fetch(`https://smart-deals-api-server-liard.vercel.app/bids?email=${user.email}`, {
   //       headers: {
   //         authorization: `Bearer ${user.accessToken}`,
   //       },
@@ -45,7 +45,7 @@ const MyBids = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/bids/${_id}`, {
+        fetch(`https://smart-deals-api-server-liard.vercel.app/bids/${_id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

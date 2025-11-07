@@ -38,7 +38,7 @@ const CreateProduct = () => {
     // console.log("✅ Product Data:", formData);
     // You can send data using axios.post("/products", formData)
 
-    // axios.post("http://localhost:5000/products", formData).then((data) => {
+    // axios.post("https://smart-deals-api-server-liard.vercel.app/products", formData).then((data) => {
     //   console.log(data.data);
 
     //   if (data.data.insertedId) {

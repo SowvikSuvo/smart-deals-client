@@ -2,7 +2,7 @@ import React from "react";
 import LatestProducts from "./LatestProducts";
 
 const latestProductsPromise = fetch(
-  "http://localhost:5000/latest-product"
+  "https://smart-deals-api-server-liard.vercel.app/latest-product"
 ).then((res) => res.json());
 
 const Home = () => {
