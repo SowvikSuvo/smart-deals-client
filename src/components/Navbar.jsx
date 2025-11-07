@@ -1,6 +1,6 @@
 import React from "react";
 import { use } from "react";
-import { Link } from "react-router";
+import { Link, NavLink } from "react-router";
 import { AuthContext } from "../contexts/AuthContext";
 
 const Navbar = () => {
@@ -19,19 +19,22 @@ const Navbar = () => {
   const links = (
     <>
       <li>
-        <Link to="/">Home</Link>
+        <NavLink to="/">Home</NavLink>
       </li>
       <li>
-        <Link to="/allProducts">All Products</Link>
+        <NavLink to="/allProducts">All Products</NavLink>
       </li>
 
       {user && (
         <>
           <li>
-            <Link to="/myProducts">My Products</Link>
+            <NavLink to="/myProducts">My Products</NavLink>
           </li>
           <li>
-            <Link to="/myBids">My Bids</Link>
+            <NavLink to="/myBids">My Bids</NavLink>
+          </li>
+          <li>
+            <NavLink to="/createAProduct">Create A Product</NavLink>
           </li>
         </>
       )}

@@ -5,18 +5,19 @@ import { useLoaderData } from "react-router";
 import { AuthContext } from "../../contexts/AuthContext";
 import Product from "../Product";
 import Swal from "sweetalert2";
+import axios, { Axios } from "axios";
 
 const ProductDetails = () => {
   const { user } = use(AuthContext);
   const bidModalRef = useRef(null);
   const [bids, setBids] = useState([]);
+
   const {
     _id: productId,
     title,
     category,
     price_max,
     price_min,
-    created_at,
     seller_image,
     seller_name,
     image,
@@ -27,20 +28,34 @@ const ProductDetails = () => {
     email,
     location,
     status,
+    created_at,
   } = useLoaderData(); // gets the JSON data returned by loader
 
   useEffect(() => {
-    fetch(`http://localhost:5000/products/bids/${productId}`, {
-      headers: {
-        authorization: `Bearer ${user.accessToken}`,
-      },
-    })
-      .then((res) => res.json())
+    axios
+      .get(`http://localhost:5000/products/bids/${productId}`, {
+        headers: {
+          authorization: `Bearer ${user.accessToken}`,
+        },
+      })
       .then((data) => {
-        console.log("bids for this product", data);
-        setBids(data);
+        console.log("after axios get ", data.data);
+        setBids(data.data);
       });
   }, [productId, user]);
+
+  // useEffect(() => {
+  //   fetch(`http://localhost:5000/products/bids/${productId}`, {
+  //     headers: {
+  //       authorization: `Bearer ${user.accessToken}`,
+  //     },
+  //   })
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       console.log("bids for this product", data);
+  //       setBids(data);
+  //     });
+  // }, [productId, user]);
 
   const handleBidModalOpen = () => {
     bidModalRef.current.showModal();
@@ -264,7 +279,10 @@ const ProductDetails = () => {
             <tbody>
               {/* Row 1 */}
               {bids.map((bid, index) => (
-                <tr className="border-t hover:bg-gray-50 transition-colors">
+                <tr
+                  key={bid._id}
+                  className="border-t hover:bg-gray-50 transition-colors"
+                >
                   <td className="py-3 px-4">{index + 1}</td>
                   <td className="py-3 px-4 flex items-center gap-3">
                     <div className="w-10 h-10 bg-gray-200 rounded-lg">

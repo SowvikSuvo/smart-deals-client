@@ -113,6 +113,10 @@ const MyBids = () => {
                   </div>
                 </td>
                 <td class="px-6 py-4 text-sm text-gray-600 sm:table-cell">
+                  <div class=" rounded w-10 h-10 ">
+                    <img src={user.photoURL} alt="" className="rounded-full" />
+                  </div>
+
                   <div class="flex flex-col">
                     <span>{bid.buyer_name}</span>
                     <span class="text-xs text-gray-400">{bid.buyer_email}</span>

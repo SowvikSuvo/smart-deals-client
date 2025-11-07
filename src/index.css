@@ -17,3 +17,9 @@
 .btn-primary:hover {
   @apply opacity-90;
 }
+
+@layer components {
+  .input {
+    @apply w-full border border-gray-300 rounded-lg p-3 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition;
+  }
+}
